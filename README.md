@@ -1,4 +1,4 @@
-# portal-saudeplusplus
+# Ithium - Sistema para Gestão de Estoque [B2B]
 
 ## Project setup
 ```
