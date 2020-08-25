@@ -4,8 +4,12 @@ import vuetify from './plugins/vuetify';
 import '@babel/polyfill'
 import router from './router'
 import store from './store'
+import axios from 'axios'
 
 Vue.config.productionTip = false
+
+// Prototypes
+Vue.prototype.$http = axios
 
 new Vue({
   vuetify,
