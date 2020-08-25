@@ -9,7 +9,16 @@
 export default {
   name: "Home",
   data: () => ({
-    
+    dados: []
   }),
+  mounted(){
+    this.$http.getNoToken('')
+    .then(response => {
+      console.log(response.data)
+    })
+    .catch(reject => {
+      console.log(reject.data)
+    })
+  }
 };
 </script>
