@@ -13,7 +13,7 @@ const headersToken = {
     } 
 }
 
-const headersNoToken = {
+const tokenlessHeader = {
     headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
@@ -29,11 +29,11 @@ const http = {
         })
     },
     
-    getNoToken(route){
+    getWithoutToken(route){
         return axios({
             method: 'get',
             url: `${url}${route}`,
-            headers: headersNoToken,
+            headers: tokenlessHeader,
         })
     },
 
