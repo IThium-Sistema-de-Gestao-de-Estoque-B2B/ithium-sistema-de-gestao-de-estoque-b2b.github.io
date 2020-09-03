@@ -12,7 +12,7 @@ export default {
     dados: []
   }),
   mounted(){
-    this.$http.getNoToken('')
+    this.$http.getWithoutToken()
     .then(response => {
       console.log(response.data)
     })

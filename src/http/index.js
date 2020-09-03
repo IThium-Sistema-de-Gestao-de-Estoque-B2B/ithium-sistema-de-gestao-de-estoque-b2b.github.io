@@ -29,7 +29,7 @@ const http = {
         })
     },
     
-    getWithoutToken(route){
+    getWithoutToken(route = ''){
         return axios({
             method: 'get',
             url: `${url}${route}`,
