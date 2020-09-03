@@ -48,7 +48,7 @@ export default {
     fotoUsuario: 'https://randomuser.me/api/portraits/men/78.jpg',
     menu: [
       { nome: "Página Inicial", pagina: "home", icone: "mdi-desktop-mac-dashboard" },
-      { nome: "Consultas", pagina: "about", icone: "mdi-account-search" },
+      { nome: "Consultas", pagina: "consultas", icone: "mdi-account-search" },
     ],
   }),
 };

@@ -1,13 +1,13 @@
 <template>
-  <div class="about">
-    <p>ABOUT - Consultas</p>
+  <div class="consultas">
+    <p>Consultas</p>
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'About'
+  name: 'Consultas'
 }
 </script>
 
