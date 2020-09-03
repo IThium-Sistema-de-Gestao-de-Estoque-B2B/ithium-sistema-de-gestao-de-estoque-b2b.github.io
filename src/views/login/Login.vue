@@ -34,7 +34,7 @@
                 
                 <v-btn 
                   :dark="!buttonDisabled" 
-                  @click.prevent 
+                  @click.prevent="login" 
                   type="submit" 
                   color="project"
                   :disabled="buttonDisabled"
@@ -65,6 +65,11 @@ export default {
     },
     mostrarSenha: false,
   }),
+  methods: {
+    login(){
+      this.$router.push('/home');
+    }
+  },
   computed: {
     buttonDisabled: function (){
       return !((this.user.access.length > 0) && (this.user.password.length > 0))

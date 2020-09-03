@@ -1,7 +1,7 @@
 <template>
   <v-app light>
     <v-main>
-      <div v-if="this.$route.path == '/login'">
+      <div v-if="this.$route.path == '/'">
           <!--  Páginas a serem carregadas -->
           <!-- <router-view /> -->
           <Login />
