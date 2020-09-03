@@ -21,9 +21,9 @@ const tokenlessHeader = {
 }
 
 const http = {
-    getToken(route){
+    getWithToken(route){
         return axios({
-            method: 'get',
+            method: 'GET',
             url: `${url}${route}`,
             headers: headersToken,
         })
@@ -31,7 +31,7 @@ const http = {
     
     getWithoutToken(route = ''){
         return axios({
-            method: 'get',
+            method: 'GET',
             url: `${url}${route}`,
             headers: tokenlessHeader,
         })
@@ -39,7 +39,7 @@ const http = {
 
     getById(route, id){
         return axios({
-            method: 'get',
+            method: 'GET',
             url: `${url}${route}${id}`,
             headers: headersToken,
         })
@@ -47,7 +47,7 @@ const http = {
     
     post(route, data){
         return axios({
-            method: 'post',
+            method: 'POST',
             url: `${url}${route}`,
             headers: headersToken,
             data: data
@@ -56,7 +56,7 @@ const http = {
     
     put(route, data){
         return axios({
-            method: 'put',
+            method: 'PUT',
             url: `${url}${route}`,
             headers: headersToken,
             data: data
@@ -65,7 +65,7 @@ const http = {
     
     delete(route, data){
         return axios({
-            method: 'delete',
+            method: 'DELETE',
             url: `${url}${route}`,
             headers: headersToken,
             data: data
