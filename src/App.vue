@@ -3,7 +3,6 @@
     <v-main>
       <div v-if="this.$route.path == '/'">
           <!--  Páginas a serem carregadas -->
-          <!-- <router-view /> -->
           <Login />
       </div>
       <div v-else>
@@ -37,5 +36,10 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+}
+@media only screen and (max-width: 724px) {
+  .custom-typography{
+    font-size: 3.6vw!important;
+  }
 }
 </style>
