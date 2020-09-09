@@ -11,7 +11,7 @@
                 <v-icon class="mr-2" large></v-icon>Login
               </div>
 
-              <v-form ref="formLogin">
+              <v-form ref="formLogin" @submit.prevent="login">
                 <v-text-field 
                   v-model="user.access"
                   color="project" 
@@ -26,18 +26,17 @@
                   color="project" 
                   prepend-icon="mdi-lock" 
                   label="Senha" 
-                  :type="mostrarSenha ? 'text' : 'password'" 
-                  :append-icon="mostrarSenha ? 'mdi-eye' : 'mdi-eye-off'" 
-                  @click:append="mostrarSenha = !mostrarSenha"
+                  :type="showPassword ? 'text' : 'password'" 
+                  :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'" 
+                  @click:append="showPassword = !showPassword"
                   required
                   ></v-text-field>
                 
                 <v-btn 
-                  :dark="!buttonDisabled" 
-                  @click.prevent="login" 
+                  :dark="!isButtonValid"
                   type="submit" 
                   color="project"
-                  :disabled="buttonDisabled"
+                  :disabled="isButtonValid"
                 >Login</v-btn>
               </v-form>
 
@@ -54,16 +53,11 @@
 export default {
   name: "Login",
   data: () => ({
-    //buttonDisabled: false,
     user: {
       access: '',
       password: '',
     },
-    options: {
-      isLoggingIn: true,
-      shouldStayLoggedIn: true,
-    },
-    mostrarSenha: false,
+    showPassword: false,
   }),
   methods: {
     login(){
@@ -71,10 +65,10 @@ export default {
     }
   },
   computed: {
-    buttonDisabled: function (){
+    isButtonValid(){
       return !((this.user.access.length > 0) && (this.user.password.length > 0))
     }
-  }
+  },
 };
 </script>
 <style scoped>

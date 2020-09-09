@@ -15,11 +15,6 @@ const routes = [
       name: 'Consultas',
       component: () => import('../views/consultas/Consultas')
     },
-    {
-      path: '/login',
-      name: 'Login',
-      component: () => import('../views/login/Login')
-    }
   ]
 
 export default routes

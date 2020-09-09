@@ -22,7 +22,7 @@
           </v-list-item-avatar>
 
           <v-list-item-content>
-            <v-list-item-title id="item-title text-md-left">{{ nameUser }}</v-list-item-title>
+            <v-list-item-title id="item-title">{{ nameUser }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -65,7 +65,7 @@ export default {
   color: inherit;
 }
 #item-title {
-  white-space: normal;
+  white-space: normal!important;
   font-size: 0.91em;
   text-align:left;
 }
