@@ -31,13 +31,13 @@
                   @click:append="showPassword = !showPassword"
                   required
                   ></v-text-field>
-                
-                <v-btn 
-                  :dark="!isButtonValid"
-                  type="submit" 
-                  color="project"
-                  :disabled="isButtonValid"
-                >Login</v-btn>
+
+                <Button 
+                  label="Login" 
+                  myType="submit" 
+                  color="project" 
+                  :isButtonValid="isButtonValid" 
+                />                
               </v-form>
 
             </v-card-text>
@@ -50,8 +50,11 @@
 </template>
 
 <script>
+import Button from './../../components/Button.vue';
+
 export default {
   name: "Login",
+  components: { Button },
   data: () => ({
     user: {
       access: '',
