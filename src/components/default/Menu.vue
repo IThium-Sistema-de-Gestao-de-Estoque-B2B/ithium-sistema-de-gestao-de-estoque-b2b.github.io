@@ -65,7 +65,7 @@ export default {
   color: inherit;
 }
 #item-title {
-  white-space: normal!important;
+  white-space: normal;
   font-size: 0.91em;
   text-align:left;
 }
