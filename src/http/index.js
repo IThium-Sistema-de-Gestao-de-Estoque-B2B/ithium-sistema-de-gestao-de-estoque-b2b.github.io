@@ -2,22 +2,19 @@ import axios from 'axios'
 
 // Consts
 const url = 'http://localhost:8000/'
-const token = ''
+const token = sessionStorage.getItem('ct') ? sessionStorage.getItem('ct') : ''
 
 // Headers
 const tokenlessHeader = {
-    headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-    } 
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*'
+
 }
 
 const headersToken = {
-    headers: {
-        ...tokenlessHeader.headers,
-        Authorization: `Bearer ${token}`
-    } 
+    ...tokenlessHeader.headers,
+    Authorization: `Bearer ${token}` 
 }
 
 const http = {
