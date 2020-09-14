@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import browserStorageService from './../../browser-storage/session-storage.js';
+import browserStorageService from './../../browser-storage/index.js';
 
 export default {
   name: "Menu",
