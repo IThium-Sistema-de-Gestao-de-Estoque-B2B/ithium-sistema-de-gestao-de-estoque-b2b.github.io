@@ -1,27 +1,27 @@
 import axios from 'axios'
 
 // Consts
-const url = 'https://guarded-headland-11685.herokuapp.com/'
-const token = 'teste-token-teste'
+const url = 'http://localhost:8000/'
+const token = ''
 
 // Headers
-const headersToken = {
-    headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        Authorization: `Bearer ${token}`
-    } 
-}
-
 const tokenlessHeader = {
     headers: {
+        Accept: 'application/json',
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
     } 
 }
 
+const headersToken = {
+    headers: {
+        ...tokenlessHeader.headers,
+        Authorization: `Bearer ${token}`
+    } 
+}
+
 const http = {
-    getWithToken(route){
+    get(route){
         return axios({
             method: 'GET',
             url: `${url}${route}`,
@@ -50,6 +50,15 @@ const http = {
             method: 'POST',
             url: `${url}${route}`,
             headers: headersToken,
+            data: data
+        })
+    },
+
+    postWithoutToken(route, data){
+        return axios({
+            method: 'POST',
+            url: `${url}${route}`,
+            headers: tokenlessHeader,
             data: data
         })
     },

@@ -11,14 +11,5 @@ export default {
   data: () => ({
     dados: []
   }),
-  mounted(){
-    this.$http.getWithoutToken()
-    .then(response => {
-      console.log(response.data)
-    })
-    .catch(reject => {
-      console.log(reject.data)
-    })
-  }
 };
 </script>

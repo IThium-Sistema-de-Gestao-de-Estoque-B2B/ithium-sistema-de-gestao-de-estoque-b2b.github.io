@@ -51,6 +51,7 @@
 
 <script>
 import Button from './../../components/Button.vue';
+import loginService from './../../services/login.js';
 
 export default {
   name: "Login",
@@ -64,7 +65,19 @@ export default {
   }),
   methods: {
     login(){
-      this.$router.push('/home');
+      loginService.login(this.user)
+      .then(response => {
+        sessionStorage.setItem('ct', response.data.access_token)
+        this.$router.push('home')
+      })
+      .catch(reject => {
+        let rejectJSON = JSON.parse(JSON.stringify(reject))
+        this.$swal.fire(
+          'Erro!',
+          'Usuario e/ou Senha incorretos!',
+          rejectJSON.name.toLowerCase()
+        )
+      })
     }
   },
   computed: {
