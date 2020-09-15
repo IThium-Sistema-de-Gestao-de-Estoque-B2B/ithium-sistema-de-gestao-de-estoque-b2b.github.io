@@ -1,7 +1,7 @@
 <template>
   <v-app light>
     <v-main>
-      <div v-if="isTokenLogged">
+      <div v-if="tokenLogged">
           <Menu />
           <router-view />
           <Footer />
@@ -22,7 +22,7 @@ export default {
   name: "App",
   components: { Menu, Footer, Login },
   computed: {
-    isTokenLogged(){
+    tokenLogged(){
       return !!(this.$store.state.token)
     }
   }
