@@ -1,8 +1,9 @@
 import axios from 'axios'
+import store from '@/store'
 
 // Consts
 const url = 'http://localhost:8000/'
-const token = sessionStorage.getItem('ct') ? sessionStorage.getItem('ct') : ''
+const token = store.state.token
 
 // Headers
 const tokenlessHeader = {

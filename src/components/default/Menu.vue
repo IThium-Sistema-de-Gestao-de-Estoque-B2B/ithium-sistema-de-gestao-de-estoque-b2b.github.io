@@ -41,7 +41,6 @@
 </template>
 
 <script>
-import browserStorageService from '@/browser-storage';
 
 export default {
   name: "Menu",
@@ -56,9 +55,12 @@ export default {
   }),
   methods:{
     logout(){
-      browserStorageService.clear()
+      this.$store.commit('CLEAR')
       this.$router.push({ name: 'Login' })
     }
+  },
+  mounted(){
+    this.nameUser = this.$store.state.user.name
   }
 };
 </script>

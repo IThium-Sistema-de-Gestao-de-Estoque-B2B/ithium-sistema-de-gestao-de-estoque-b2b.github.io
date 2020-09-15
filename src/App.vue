@@ -1,13 +1,13 @@
 <template>
   <v-app light>
     <v-main>
-      <div v-if="this.$route.path == '/'">
-          <Login />
-      </div>
-      <div v-else>
+      <div v-if="isTokenLogged">
           <Menu />
           <router-view />
           <Footer />
+      </div>
+      <div v-else>
+          <Login />
       </div>
     </v-main>
   </v-app>
@@ -21,6 +21,11 @@ import Login from '@/views/login/Login'
 export default {
   name: "App",
   components: { Menu, Footer, Login },
+  computed: {
+    isTokenLogged(){
+      return !!(this.$store.state.token)
+    }
+  }
 };
 </script>
 

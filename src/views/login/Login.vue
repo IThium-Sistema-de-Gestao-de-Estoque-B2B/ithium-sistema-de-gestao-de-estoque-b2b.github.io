@@ -67,7 +67,7 @@ export default {
     login(){
       loginService.login(this.user)
       .then(response => {
-        sessionStorage.setItem('ct', response.data.access_token)
+        this.setDataInStore(response.data)
         this.$router.push({ name: 'Home' })
       })
       .catch(reject => {
@@ -78,6 +78,10 @@ export default {
           rejectJSON.name.toLowerCase()
         )
       })
+    },
+    setDataInStore(data){
+      this.$store.commit('SET_LOGGED_TOKEN', data.access_token)
+      this.$store.commit('SET_LOGGED_USER', data.user)
     }
   },
   computed: {
