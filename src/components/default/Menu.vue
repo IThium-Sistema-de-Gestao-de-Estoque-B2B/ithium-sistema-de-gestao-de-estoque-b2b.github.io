@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import browserStorageService from './../../browser-storage/index.js';
+import browserStorageService from '@/browser-storage';
 
 export default {
   name: "Menu",
@@ -57,7 +57,7 @@ export default {
   methods:{
     logout(){
       browserStorageService.clear()
-      this.$router.push("/")
+      this.$router.push({ name: 'Login' })
     }
   }
 };

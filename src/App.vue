@@ -14,15 +14,13 @@
 </template>
 
 <script>
-import Menu from './components/default/Menu'
-import Footer from './components/default/Footer'
-import Login from './views/login/Login.vue'
+import Menu from '@/components/default/Menu'
+import Footer from '@/components/default/Footer'
+import Login from '@/views/login/Login'
 
 export default {
   name: "App",
   components: { Menu, Footer, Login },
-  data: () => ({
-  }),
 };
 </script>
 

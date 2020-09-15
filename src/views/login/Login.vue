@@ -50,8 +50,8 @@
 </template>
 
 <script>
-import Button from './../../components/Button.vue';
-import loginService from './../../services/login.js';
+import Button from '@/components/Button';
+import loginService from '@/services/Login';
 
 export default {
   name: "Login",
@@ -68,7 +68,7 @@ export default {
       loginService.login(this.user)
       .then(response => {
         sessionStorage.setItem('ct', response.data.access_token)
-        this.$router.push('home')
+        this.$router.push({ name: 'Home' })
       })
       .catch(reject => {
         let rejectJSON = JSON.parse(JSON.stringify(reject))
