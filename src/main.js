@@ -5,7 +5,6 @@ import '@babel/polyfill'
 import router from './router'
 
 import store from './store'
-import http from './http/index'
 
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
@@ -13,9 +12,6 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 Vue.use(VueSweetalert2);
 
 Vue.config.productionTip = false
-
-// Prototypes
-Vue.prototype.$http = http
 
 new Vue({
   vuetify,

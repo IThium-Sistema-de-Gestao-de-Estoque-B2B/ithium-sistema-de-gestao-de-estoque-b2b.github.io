@@ -51,7 +51,6 @@
 
 <script>
 import Button from '@/components/Button';
-import loginService from '@/services/Login';
 
 export default {
   name: "Login",
@@ -65,23 +64,17 @@ export default {
   }),
   methods: {
     login(){
-      loginService.login(this.user)
-      .then(response => {
-        this.setDataInStore(response.data)
-        this.$router.push({ name: 'Home' })
-      })
-      .catch(reject => {
-        let rejectJSON = JSON.parse(JSON.stringify(reject))
-        this.$swal.fire(
-          'Erro!',
-          'Usuario e/ou Senha incorretos!',
-          rejectJSON.name.toLowerCase()
-        )
-      })
-    },
-    setDataInStore(data){
-      this.$store.commit('SET_LOGGED_TOKEN', data.access_token)
-      this.$store.commit('SET_LOGGED_USER', data.user)
+      this.$store.dispatch('login', this.user)
+        .then(() => {
+          this.$router.push({ name: 'Home' })
+        })
+        .catch(() => {
+          this.$swal.fire(
+            'Erro!',
+            'Usuario e/ou Senha incorretos!',
+            'error'
+          )
+        })
     }
   },
   computed: {
