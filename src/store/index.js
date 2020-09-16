@@ -29,7 +29,6 @@ const actions = {
                 headers: config.headerWithoutToken
             })
             .then(response => {
-                console.log(response)
                 commit('SET_LOGGED_USER', {
                     token: response.data.token,
                     user: response.data.user
@@ -37,7 +36,6 @@ const actions = {
                 resolve(response.data)
             })
             .catch(err => {
-                console.log(err)
                 reject(err)
             })
         })
