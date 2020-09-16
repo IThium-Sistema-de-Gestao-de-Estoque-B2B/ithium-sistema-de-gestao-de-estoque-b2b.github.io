@@ -1,39 +1,31 @@
 <template>
   <v-app light>
     <v-main>
-      <div v-if="this.$route.path == '/login'">
-          <!--  Páginas a serem carregadas -->
-          <!-- <router-view /> -->
-          <Login />
+      <div v-if="tokenLogged">
+          <Menu />
+          <router-view />
+          <Footer />
       </div>
       <div v-else>
-        <div>
-          <!--  Menu a ser carregado em todas as páginas logadas -->
-          <Menu></Menu>
-        </div>
-        <div>
-          <!--  Páginas a serem carregadas -->
-          <router-view />
-        </div>
-        <div>
-          <!--  Footer a ser carregado em todas as páginas logadas -->
-          <Footer></Footer>
-        </div>
+          <Login />
       </div>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Menu from './components/default/Menu'
-import Footer from './components/default/Footer'
-import Login from './views/login/Login.vue'
+import Menu from '@/components/default/Menu'
+import Footer from '@/components/default/Footer'
+import Login from '@/views/login/Login'
 
 export default {
   name: "App",
   components: { Menu, Footer, Login },
-  data: () => ({
-  }),
+  computed: {
+    tokenLogged(){
+      return !!(this.$store.state.token)
+    }
+  }
 };
 </script>
 
@@ -43,5 +35,10 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+}
+@media only screen and (max-width: 724px) {
+  .custom-typography{
+    font-size: 3.6vw!important;
+  }
 }
 </style>

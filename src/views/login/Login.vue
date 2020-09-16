@@ -11,7 +11,7 @@
                 <v-icon class="mr-2" large></v-icon>Login
               </div>
 
-              <v-form ref="formLogin">
+              <v-form ref="formLogin" @submit.prevent="login">
                 <v-text-field 
                   v-model="user.access"
                   color="project" 
@@ -26,19 +26,18 @@
                   color="project" 
                   prepend-icon="mdi-lock" 
                   label="Senha" 
-                  :type="mostrarSenha ? 'text' : 'password'" 
-                  :append-icon="mostrarSenha ? 'mdi-eye' : 'mdi-eye-off'" 
-                  @click:append="mostrarSenha = !mostrarSenha"
+                  :type="showPassword ? 'text' : 'password'" 
+                  :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'" 
+                  @click:append="showPassword = !showPassword"
                   required
                   ></v-text-field>
-                
-                <v-btn 
-                  :dark="!buttonDisabled" 
-                  @click.prevent 
-                  type="submit" 
-                  color="project"
-                  :disabled="buttonDisabled"
-                >Login</v-btn>
+
+                <Button 
+                  label="Login" 
+                  myType="submit" 
+                  color="project" 
+                  :isButtonValid="isButtonValid" 
+                />                
               </v-form>
 
             </v-card-text>
@@ -51,25 +50,49 @@
 </template>
 
 <script>
+import Button from '@/components/Button';
+
 export default {
   name: "Login",
+  components: { Button },
   data: () => ({
-    //buttonDisabled: false,
     user: {
       access: '',
       password: '',
     },
-    options: {
-      isLoggingIn: true,
-      shouldStayLoggedIn: true,
-    },
-    mostrarSenha: false,
+    showPassword: false,
   }),
+  methods: {
+    login(){
+      if(this.user.access == "teste.dev" && this.user.password == "123456"){
+          this.$store.dispatch('login', {
+            "email": "gboyenj@mapy.cz",
+            "password": "3A1N4xiB"
+          })
+          .then(() => {
+            this.$router.push({ name: 'Home' })
+          })
+          .catch(() => {
+            this.$swal.fire(
+              'Erro!',
+              'Usuario e/ou Senha incorretos!',
+              'error'
+            )
+          })
+      } else {
+        this.$swal.fire(
+          'Erro!',
+          'Usuario e/ou Senha incorretos!',
+          'error'
+        )
+      }
+    }
+  },
   computed: {
-    buttonDisabled: function (){
+    isButtonValid(){
       return !((this.user.access.length > 0) && (this.user.password.length > 0))
     }
-  }
+  },
 };
 </script>
 <style scoped>
