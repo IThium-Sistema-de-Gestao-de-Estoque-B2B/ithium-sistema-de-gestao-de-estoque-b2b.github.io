@@ -1,9 +1,9 @@
-const headerWithouToken = {
+const headerWithoutToken = {
     Accept: 'application/json',
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*'
 }
 
-const url = 'http://localhost:8000/'
+const url = 'https://guarded-headland-11685.herokuapp.com'
 
-export default { headerWithouToken, url }
+export default { headerWithoutToken, url }
