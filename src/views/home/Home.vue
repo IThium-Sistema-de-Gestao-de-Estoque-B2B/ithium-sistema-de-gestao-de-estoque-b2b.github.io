@@ -8,8 +8,5 @@
 
 export default {
   name: "Home",
-  data: () => ({
-    dados: []
-  }),
 };
 </script>
