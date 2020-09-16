@@ -64,17 +64,28 @@ export default {
   }),
   methods: {
     login(){
-      this.$store.dispatch('login', this.user)
-        .then(() => {
-          this.$router.push({ name: 'Home' })
-        })
-        .catch(() => {
-          this.$swal.fire(
-            'Erro!',
-            'Usuario e/ou Senha incorretos!',
-            'error'
-          )
-        })
+      if(this.user.access == "teste.dev" && this.user.password == "123456"){
+          this.$store.dispatch('login', {
+            "email": "gboyenj@mapy.cz",
+            "password": "3A1N4xiB"
+          })
+          .then(() => {
+            this.$router.push({ name: 'Home' })
+          })
+          .catch(() => {
+            this.$swal.fire(
+              'Erro!',
+              'Usuario e/ou Senha incorretos!',
+              'error'
+            )
+          })
+      } else {
+        this.$swal.fire(
+          'Erro!',
+          'Usuario e/ou Senha incorretos!',
+          'error'
+        )
+      }
     }
   },
   computed: {
