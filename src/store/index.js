@@ -25,17 +25,19 @@ const mutations = {
 const actions = {
     login({ commit }, data){
         return new Promise((resolve, reject) => {
-            axios.post(`${config.url}auth/login`, data, {
-                headers: config.headerWithouToken
+            axios.post(`${config.url}/login`, data, {
+                headers: config.headerWithoutToken
             })
             .then(response => {
+                console.log(response)
                 commit('SET_LOGGED_USER', {
-                    token: response.data.access_token,
+                    token: response.data.token,
                     user: response.data.user
                 })
                 resolve(response.data)
             })
             .catch(err => {
+                console.log(err)
                 reject(err)
             })
         })
