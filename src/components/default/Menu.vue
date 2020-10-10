@@ -55,7 +55,7 @@ export default {
   }),
   methods:{
     logout(){
-      this.$store.commit('CLEAR')
+      this.$store.commit('CLEAR_ALL')
       this.$router.push({ name: 'Login' })
     }
   },

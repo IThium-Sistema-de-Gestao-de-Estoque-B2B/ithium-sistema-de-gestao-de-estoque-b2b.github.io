@@ -4,7 +4,6 @@
       <div v-if="tokenLogged">
           <Menu />
           <router-view />
-          <Footer />
       </div>
       <div v-else>
           <Login />
@@ -15,17 +14,20 @@
 
 <script>
 import Menu from '@/components/default/Menu'
-import Footer from '@/components/default/Footer'
 import Login from '@/views/login/Login'
 
 export default {
   name: "App",
-  components: { Menu, Footer, Login },
+  components: { Menu, Login },
   computed: {
     tokenLogged(){
       return !!(this.$store.state.token)
     }
   }
+  // mounted(){
+  //   (!!(this.$store.state.token))
+  //     this.$router.push({ path: 'login/:codigo' })
+  // }
 };
 </script>
 
