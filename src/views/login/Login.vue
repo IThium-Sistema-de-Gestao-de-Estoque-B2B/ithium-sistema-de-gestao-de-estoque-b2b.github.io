@@ -55,6 +55,7 @@ import Button from '@/components/Button';
 export default {
   name: "Login",
   components: { Button },
+  props: ['codigo'],
   data: () => ({
     user: {
       access: '',
@@ -84,7 +85,10 @@ export default {
           'Erro!',
           'Usuario e/ou Senha incorretos!',
           'error'
-        )
+        ).then(() => {
+          this.user.access = '' 
+          this.user.password = ''
+        })
       }
     }
   },
@@ -92,7 +96,7 @@ export default {
     isButtonValid(){
       return !((this.user.access.length > 0) && (this.user.password.length > 0))
     }
-  },
+  }
 };
 </script>
 <style scoped>

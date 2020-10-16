@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import config from '@/http' 
-import axios from 'axios'
+import actions from './actions'
 
 Vue.use(Vuex)
 
@@ -15,33 +14,11 @@ const mutations = {
         state.token = token
         state.user = user
     },
-    CLEAR(state){
+    CLEAR_ALL(state){
         state.token = null
         state.user = {}
     }
 }
-
-
-const actions = {
-    login({ commit }, data){
-        return new Promise((resolve, reject) => {
-            axios.post(`${config.url}/login`, data, {
-                headers: config.headerWithoutToken
-            })
-            .then(response => {
-                commit('SET_LOGGED_USER', {
-                    token: response.data.token,
-                    user: response.data.user
-                })
-                resolve(response.data)
-            })
-            .catch(err => {
-                reject(err)
-            })
-        })
-    }
-}
-
 
 export default new Vuex.Store({
     state,
