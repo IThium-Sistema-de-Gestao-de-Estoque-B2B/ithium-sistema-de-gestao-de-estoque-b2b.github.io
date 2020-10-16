@@ -26,7 +26,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list dense class="pt-3 white--text">
+        <v-list dense class="pt-3" id="v_list">
           <v-list-item v-for="(item, index) in menu" :key="index" :to="item.page">
             <v-icon>{{ item.icon }}</v-icon>
             <v-list-item-content>
@@ -68,6 +68,9 @@ export default {
 <style scoped>
 #toolbar {
   z-index: 9999;
+}
+#v_list{
+  color: #004c90;
 }
 #logout {
   cursor: pointer; 
