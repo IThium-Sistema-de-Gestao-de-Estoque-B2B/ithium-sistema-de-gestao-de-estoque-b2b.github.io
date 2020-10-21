@@ -8,7 +8,7 @@
             <v-card-text>
 
               <div class="display-1 mb-3">
-                <v-icon class="mr-2" large></v-icon>Login
+                <v-icon class="mr-2" large></v-icon>Login 3
               </div>
 
               <v-form ref="formLogin" @submit.prevent="login">
@@ -53,7 +53,7 @@
 import Button from '@/components/Button';
 
 export default {
-  name: "Login 3",
+  name: "Login",
   components: { Button },
   props: ['codigo'],
   data: () => ({
