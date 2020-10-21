@@ -53,7 +53,7 @@
 import Button from '@/components/Button';
 
 export default {
-  name: "Login",
+  name: "Login 2",
   components: { Button },
   props: ['codigo'],
   data: () => ({
