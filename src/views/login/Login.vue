@@ -8,7 +8,7 @@
             <v-card-text>
 
               <div class="display-1 mb-3">
-                <v-icon class="mr-2" large></v-icon>Login
+                <v-icon class="mr-2" large></v-icon>exemplo
               </div>
 
               <v-form ref="formLogin" @submit.prevent="login">
